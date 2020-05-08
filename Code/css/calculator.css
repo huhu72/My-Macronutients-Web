@@ -70,18 +70,10 @@ ul #Home{
 
 main{
 	background:rgba(255,255,255,.30);
-	padding:1em 1.4em;
-	color: #707070;
+    padding:1em 1.4em;
+    color: #707070;
 }
-h1{
-	margin:0;
-	text-align: center;
-	
-}
-p{
-	font-size: 1.5em;
-	line-height: 1.5em;
-}
+
 .cta{
 	display: block;
 	color: white;
@@ -93,6 +85,27 @@ p{
 	font-weight: bold;
 	border-radius: 50px;
 	margin: 2em 0;
+}
+.label{
+    width: 300px;
+    font-size: 4vmax;
+    font-weight: 100;
+    padding:0;
+    display: inline-block;
+    
+}
+#weight{
+    display: inline;
+    margin-right: 0;
+}
+input{
+    width: 50px;
+    height: 20px;
+    border-radius: 50px;
+    border: none;
+    text-align: center;
+    vertical-align: text-bottom;
+
 }
 
 @media only screen and (min-width: 768px){
@@ -148,13 +161,7 @@ p{
 		padding:.8em 3em;
 
 	}
-	h1{
-		font-size: 3em;
-		margin-top: 2em;
-	}
-	p{
-		font-size: 1.5em;
-	}
+	
 	ul #Home{
 		background-color: rgba(255,255,255,.50);
 	}
