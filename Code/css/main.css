@@ -114,7 +114,7 @@ p{
 	position: absolute;
 	top:0;
 	left: 0;
-	display: flex;
+	display: none;
 	font-weight: 100;
 	justify-content: center;
 	text-align: center;
@@ -172,16 +172,17 @@ input{
 	width:10em;
 	padding: 10px;
 }
-.close-btn{
+.close{
 	position: absolute;
 	right: 0px;
 	top: 5px;
 	height: 25px;
-	
+	display: block;
 }
 #gender{
-	width:80px;
-	margin-left: 10em;
+	width:300px;
+	margin: 0px auto;
+	padding-right: 230px;
 	margin-bottom: 0;
 	font-weight: 300;
 }
@@ -189,10 +190,13 @@ input{
 	width: 10px;
 	height:8px;
 	vertical-align: text-bottom;
-	margin-left: 1em;
-	display: inline-block;
+	display: inline-flex;
 }
+
+#male{
+	margin-left: -9em;
 }
+
 @media only screen and (min-width: 768px){
 	body{
 		display: grid;
@@ -257,7 +261,7 @@ input{
 		background-color: rgba(255,255,255,.50);
 	}
 	body{
-				  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#e3eeff+0,f3e7e9+100 */
+	 /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#e3eeff+0,f3e7e9+100 */
 	background: #e3eeff; /* Old browsers */
 	background: -moz-linear-gradient(-45deg,  #e3eeff 0%, #f3e7e9 100%); /* FF3.6-15 */
 	background: -webkit-linear-gradient(-45deg,  #e3eeff 0%,#f3e7e9 100%); /* Chrome10-25,Safari5.1-6 */
@@ -266,6 +270,46 @@ input{
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 
+	}
+	.close{
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 30px;
+		height: 30px;
+	}
+
+	.login-popup-content{
+		height: 250px;
+		width: 500px;
+		padding: 20px;
+		margin-top: 20%;
+		background: #fff;
+		border-radius: 5px;
+		position: relative;
+	}
+	.login-popup-content h1{
+		margin: 0;
+		margin-bottom: 10px;
+	}
+	.login{
+		background: rgba(0, 0, 0, .6);
+	}
+	.signup-popup-content{
+		height: 450px;
+		width: 400px;
+		padding: 20px;
+		margin-top: 20%;
+		background: #fff;
+		border-radius: 5px;
+		position: relative;
+	}
+	.signup-popup-content h1{
+		margin: 0;
+		margin-bottom: 10px;
+	}
+	.signup{
+		background: rgba(0, 0, 0, .6);
 	}
 	
 }
