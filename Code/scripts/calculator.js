@@ -4,6 +4,12 @@ function nav(){
 
 }
 function calculate(){
-    $('.calculation').css("display","inline-block");
-    $('.label').css("display","inline-block");
+    $('#content-wrapper').css("grid-template-columns",".5fr .2fr .5fr .4fr")
+    $('.calculation').css("display","inline");
+    
+}
+function navCalculate(){
+    $('#content-wrapper').css("grid-template-columns","auto auto")
+    $('.calculation').css("display","inline");
+    
 }
