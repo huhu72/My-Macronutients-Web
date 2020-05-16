@@ -85,7 +85,6 @@ p{
 .cta{
 	display: flex;
 	justify-content: center;
-	align-items: center;
 	color: white;
 	background:#89CBD3;
 	text-decoration: none;
@@ -310,6 +309,9 @@ input{
 	}
 	.signup{
 		background: rgba(0, 0, 0, .6);
+	}
+	#gender{
+		width: 100px;
 	}
 	
 }

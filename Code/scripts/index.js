@@ -43,7 +43,7 @@ function confirmCount(obj){
 
 function openPopup(obj){
     $(obj).css("display", "flex");
-    console.log("displayed!");
+ 
 }
 
 
