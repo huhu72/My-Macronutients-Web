@@ -106,28 +106,28 @@ input{
 	order:2;
 }
 #protein-cal-label{
-	order: 3;
-}
-#protein-cal-calc{
-	order:4;
-}
-#carb-label{
-	order: 5;
-}
-#carb-calc{
-	order: 6;
-}
-#carb-cal-label{
 	order: 7;
 }
-#carb-cal-calc{
-	order: 8;
+#protein-cal-calc{
+	order:8;
 }
-#fat-label{
+#carb-label{
+	order: 3;
+}
+#carb-calc{
+	order: 4;
+}
+#carb-cal-label{
 	order: 9;
 }
-#fat-calc{
+#carb-cal-calc{
 	order: 10;
+}
+#fat-label{
+	order: 5;
+}
+#fat-calc{
+	order: 6;
 }
 #fat-cal-label{
 	order: 11;
@@ -195,8 +195,7 @@ input{
 		grid-template-columns: auto;
 		grid-template-rows: 20% auto;
 		padding:0;
-	}
-	
+	}	
 	main{
 		padding: 4em;
 		background:rgba(255,255,255,.30) url('../images/bg.svg') no-repeat bottom right;
@@ -299,10 +298,7 @@ input{
 	#fat-cal-calc{
 		order: 12;
 	}
-	.cta{
-		height: 2vw;
-		width: 10vw;
-	}
+	
 	#btn-wrapper{
 		grid-template-columns: auto auto;
 		margin-top: 5em;

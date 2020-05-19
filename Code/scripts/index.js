@@ -22,7 +22,6 @@ submitBtn.addEventListener('click',e=> {
         Email: email.value,
         Password: pass.value,
         Gender : selectedVal
-        
        });
     
     
@@ -42,8 +41,7 @@ function confirmCount(obj){
 }
 
 function openPopup(obj){
-    $(obj).css("display", "flex");
- 
+    $(obj).css("display", "grid");
 }
 
 
