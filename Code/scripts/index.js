@@ -33,6 +33,7 @@ function nav(){
 }
 function passCount(obj){
     document.getElementById('pass').innerHTML = obj.value.length + '/10'
+    console.log(obj.value.length);
 
 }
 function confirmCount(obj){

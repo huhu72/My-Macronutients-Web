@@ -14,8 +14,4 @@ function calculate(){
     $('.calculation').css("display","inline");
     
 }
-function navCalculate(){
-    $('#content-wrapper').css("grid-template-columns","auto auto")
-    $('.calculation').css("display","inline");
-    
-}
+
