@@ -46,11 +46,15 @@ function closePopup(obj) {
 }
 function toggle() {
   if (state) {
-    document.getElementById("pwd").type = "password";
+    document.getElementById("login-pwd").type = "password";
+    document.getElementById("signup-pwd").type = "password";
+    document.getElementById("signup-cpwd").type = "password";
     $('.fas').removeClass("fa-eye").addClass("fa-eye-slash");
     state = false;
   } else {
-    document.getElementById("pwd").type = "text";
+    document.getElementById("login-pwd").type = "text";
+    document.getElementById("signup-pwd").type = "text";
+    document.getElementById("signup-cpwd").type = "text";
     $('.fas').removeClass("fa-eye-slash").addClass("fa-eye");
     state = true;
   }

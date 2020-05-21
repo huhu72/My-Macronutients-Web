@@ -115,7 +115,7 @@ p {
   left: 0;
   font-weight: 100;
   text-align: center;
-  /*display: none;*/
+  display: none;
 }
 
 .login-popup-content {
@@ -138,11 +138,11 @@ input {
   border: .5px solid #707070;
   -webkit-appearance: none;
 }
-#pwd{
+.pwd{
 	width: 267px;
 	border: none;
 }
-#pwd-wrapper {
+#login-pwd-wrapper {
 	display: inline-block;
 	border: .5px solid #707070;
 	border-radius: 5px;
@@ -192,7 +192,7 @@ input,
   left: 0;
   font-weight: 100;
   text-align: center;
-  display: none;
+ /* display: none;*/
 }
 .signup-popup-content {
   height: 100%;
@@ -207,6 +207,15 @@ input,
   font-size: 50px;
   height: fit-content;
 }
+#signup-pwd-wrapper {
+	display: inline-block;
+	border: .5px solid #707070;
+	border-radius: 5px;
+	height: fit-content;
+	width: fit-content;
+	justify-self: center;
+}
+
 .pass-counter {
   font-size: 15px;
   height: fit-content;
