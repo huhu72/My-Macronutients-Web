@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="/css/main.css" />
     <title>Macronutrients</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/16b426a836.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <aside>
@@ -50,7 +54,12 @@
           />
           <h1>Log In</h1>
           <input type="text" placeholder="Email" />
-          <input type="password" placeholder="Password" />
+          <div id="pwd-wrapper">
+            <input type="password" placeholder="Password" id="pwd" />
+            <span id="eye">
+              <i class="fas fa-eye-slash" onclick="toggle()"></i>
+            </span>
+          </div>
           <a href="#" class="form-btn">LOG IN</a>
           <a href="#" id="forgot">Forgot password?</a>
         </div>

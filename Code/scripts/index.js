@@ -1,52 +1,57 @@
 var nameField = document.getElementById("name");
-var email= document.getElementById("email");
+var email = document.getElementById("email");
 var pass = document.getElementById("pass");
 var confirmPass = document.getElementById("confirm-pass");
 var submitBtn = document.getElementById("submit");
+var state = false;
 const database = firebase.database();
 const auth = firebase.auth();
 
-submitBtn.addEventListener('click',e=> {
-
-    const gender = document.querySelectorAll('input[name="gender"]');
-    let selectedVal;
-    for(const radioBtn of gender){
-        if(radioBtn.checked){
-            selectedVal = radioBtn.value;
-        }
-        //TODO handler for if no box is checked
+submitBtn.addEventListener("click", (e) => {
+  const gender = document.querySelectorAll('input[name="gender"]');
+  let selectedVal;
+  for (const radioBtn of gender) {
+    if (radioBtn.checked) {
+      selectedVal = radioBtn.value;
     }
-    auth.createUserWithEmailAndPassword(email.value,pass.value);
-    database.ref("Users").set({
-        Name: nameField.value,
-        Email: email.value,
-        Password: pass.value,
-        Gender : selectedVal
-       });
-    
-    
+    //TODO handler for if no box is checked
+  }
+  auth.createUserWithEmailAndPassword(email.value, pass.value);
+  database.ref("Users").set({
+    Name: nameField.value,
+    Email: email.value,
+    Password: pass.value,
+    Gender: selectedVal,
   });
-function nav(){
-    var menu = document.querySelector('ul');
-    menu.classList.toggle('active');
-
+});
+function nav() {
+  var menu = document.querySelector("ul");
+  menu.classList.toggle("active");
 }
-function passCount(obj){
-    document.getElementById('pass').innerHTML = obj.value.length + '/10'
-    console.log(obj.value.length);
-
+function passCount(obj) {
+  document.getElementById("pass").innerHTML = obj.value.length + "/10";
+  console.log(obj.value.length);
 }
-function confirmCount(obj){
-    document.getElementById('confirm-pass').innerHTML = obj.value.length + '/10'
-
+function confirmCount(obj) {
+  document.getElementById("confirm-pass").innerHTML = obj.value.length + "/10";
 }
 
-function openPopup(obj){
-    $(obj).css("display", "grid");
+function openPopup(obj) {
+  $(obj).css("display", "grid");
 }
 
-
-function closePopup(obj){
-    $(obj).css("display", "none");
-    $(obj).css("display", "none");
+function closePopup(obj) {
+  $(obj).css("display", "none");
+  $(obj).css("display", "none");
+}
+function toggle() {
+  if (state) {
+    document.getElementById("pwd").type = "password";
+    $('.fas').removeClass("fa-eye").addClass("fa-eye-slash");
+    state = false;
+  } else {
+    document.getElementById("pwd").type = "text";
+    $('.fas').removeClass("fa-eye-slash").addClass("fa-eye");
+    state = true;
+  }
 }
