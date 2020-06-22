@@ -135,20 +135,27 @@ input {
   width: 300px;
   height: 40px;
   font-size: 20px;
-  border: .5px solid #707070;
+  border: 0.5px solid #707070;
   -webkit-appearance: none;
 }
-.pwd{
-	width: 267px;
-	border: none;
+input[type="radio"] {
+  border-radius: 100%;
+}
+input:checked {
+  background-color: #707070;
+}
+
+.pwd {
+  width: 267px;
+  border: none;
 }
 #login-pwd-wrapper {
-	display: inline-block;
-	border: .5px solid #707070;
-	border-radius: 5px;
-	height: fit-content;
-	width: fit-content;
-	justify-self: center;
+  display: inline-block;
+  border: 0.5px solid #707070;
+  border-radius: 5px;
+  height: fit-content;
+  width: fit-content;
+  justify-self: center;
 }
 span {
   cursor: pointer;
@@ -192,7 +199,7 @@ input,
   left: 0;
   font-weight: 100;
   text-align: center;
- /* display: none;*/
+   display: none;
 }
 .signup-popup-content {
   height: 100%;
@@ -208,12 +215,12 @@ input,
   height: fit-content;
 }
 #signup-pwd-wrapper {
-	display: inline-block;
-	border: .5px solid #707070;
-	border-radius: 5px;
-	height: fit-content;
-	width: fit-content;
-	justify-self: center;
+  display: inline-block;
+  border: 0.5px solid #707070;
+  border-radius: 5px;
+  height: fit-content;
+  width: fit-content;
+  justify-self: center;
 }
 
 .pass-counter {

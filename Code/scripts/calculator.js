@@ -12,6 +12,5 @@ function calculate(){
     $('#content-wrapper').css("grid-template-columns","auto auto")
     }
     $('.calculation').css("display","inline");
-    
 }
 

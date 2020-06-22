@@ -80,13 +80,14 @@
           />
           <h1>Sign Up</h1>
           <p id="gender">Gender</p>
-          <div id="radio-btn-container">
+          <form id="radio-btn-container">
             <input
               type="radio"
               class="radioButton"
               id="male"
               name="gender"
               value="Male"
+              required
             />
             <div id="gender-label">Male</div>
             <input
@@ -95,9 +96,10 @@
               id="female"
               name="gender"
               value="Female"
+              required
             />
             <div id="gender-label">Female</div>
-          </div>
+          </form>
           <input type="text" placeholder="Name" id="name" />
           <input type="text" placeholder="Email" id="email" />
           <div id="signup-pwd-wrapper">
