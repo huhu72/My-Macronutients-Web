@@ -83,12 +83,13 @@ main{
 input{
     width:20vw;
     height: 8vw;
-    border: none;
+	border: none;
     text-align: center;
 	vertical-align: text-bottom;
 	font-size: 3.5vw;
 	margin-left: 55px;
 	border-radius: 20px;
+	
 }
 select{
 	text-align: center;
@@ -116,6 +117,7 @@ select{
 	margin-left: 0;
 	margin-top: 0;
 	align-self: center;
+	
   }
   #gender-label {
 	align-self: center;
@@ -130,7 +132,10 @@ select{
   #female {
 	margin-left: 10px;
   }
-  
+  input:checked {
+	background-color: #707070;
+	-webkit-appearance: none;
+	}
 .calculation{
 	font-size: 3vh;
 	width: fit-content;
