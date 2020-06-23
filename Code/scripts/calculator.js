@@ -3,7 +3,7 @@ function nav() {
   menu.classList.toggle("active");
 }
 var multiplier, calories,userSelection,gender;
-var weight = document.getElementById("weight").value;
+var weight;
 function calculate() {
   var w = parseInt(window.innerWidth);
   if (w >= 768) {
@@ -21,9 +21,11 @@ function calculate() {
   else{
       this.multiplier = 15;
   }
+  this.weight = document.getElementById("weight").value;
   this.userSelection = document.getElementById("goals").value;
   this.calories = calcCalories(weight,multiplier);
   calcMacros(weight, userSelection, calories);
+  console.log(weight)
 }
 function add(){
     this.gender = $("input[name=gender]:checked").val();
@@ -47,7 +49,7 @@ function calcMacros(weight, userSelection, calories) {
     carbCalories,
     proteinCalories,
     fatCalories;
-console.log(gender)
+
   if (userSelection == "Cut") {
     proteinPercentage = 1.1;
     fatPercentage = 0.2;

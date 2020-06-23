@@ -372,6 +372,7 @@ button{
 	}
 	button{
 		border: 2px solid #e3eeff;
+		width: 20vw;
 		color: white;
 		background: #89CBD3;
 		overflow: hidden;
