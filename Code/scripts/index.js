@@ -22,7 +22,7 @@ function signup(obj) {
     alert("Please choose a gender");
     return;
   }
-  if(name.length == 0){
+  if (name.length == 0) {
     alert("Please put in your name");
     return;
   }
@@ -34,38 +34,39 @@ function signup(obj) {
     alert("Please enter a password.");
     return;
   }
-  if(confirmPass !=password){
+  if (confirmPass != password) {
     alert("Please make sure your passwords match");
     return;
   }
-  
-  
-  
-  
-  $(obj).css("display", "flex");
-  /*firebase
+
+  firebase
     .auth()
     .createUserWithEmailAndPassword(email, password)
     .catch(function (error) {
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
-      // [START_EXCLUDE]
+
       if (errorCode == "auth/weak-password") {
         alert("The password is too weak.");
+        return;
       } else {
         alert(errorMessage);
       }
       console.log(error);
-      // [END_EXCLUDE]
     });
-  // [END createwithemail]
+
   database.ref("Users").set({
     Name: name,
     Email: email,
     Password: password,
     Gender: selectedVal,
-  });*/
+  });
+  $(obj).css("display", "flex");
+  setTimeout(function () {
+    $(obj).css("display", "none");
+    $(".signup").css("display", "none");
+  }, 2800);
 }
 
 function nav() {
@@ -119,7 +120,7 @@ function emailCount(obj) {
   } else {
     $("#email").css("border-bottom", " .8px solid #707070");
   }
-  if(name.length==0){
+  if (name.length == 0) {
     $("#name").css("border-bottom", " .8px solid red");
   }
 }
