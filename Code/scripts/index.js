@@ -17,7 +17,7 @@ function signup(obj) {
       checked = true;
     }
   }
-  if (!checked) {
+  /*if (!checked) {
     $(".gender-radio").css("border", ".1px solid red");
     alert("Please choose a gender");
     return;
@@ -61,8 +61,8 @@ function signup(obj) {
     Email: email,
     Password: password,
     Gender: selectedVal,
-  });
-  $(obj).css("display", "flex");
+  });*/
+  $(obj).css("display", "grid");
   setTimeout(function () {
     $(obj).css("display", "none");
     $(".signup").css("display", "none");
