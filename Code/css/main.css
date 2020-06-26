@@ -13,17 +13,17 @@ body {
   background: -moz-linear-gradient(
     top,
     #e3eeff 1%,
-    #f3e7e9 100%
+    #f5d0d6 100%
   ); /* FF3.6-15 */
   background: -webkit-linear-gradient(
     top,
     #e3eeff 1%,
-    #f3e7e9 100%
+    #f5d0d6 100%
   ); /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(
     to bottom,
     #e3eeff 1%,
-    #f3e7e9 100%
+    #f5d0d6 100%
   ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e3eeff', endColorstr='#f3e7e9',GradientType=0 ); /* IE6-9 */
   background-repeat: no-repeat;
@@ -190,7 +190,9 @@ input,
   height: 30px;
   width: 30px;
   justify-self: end;
+ 
 }
+
 .signup {
   width: 100%;
   height: 100%;
@@ -199,7 +201,70 @@ input,
   left: 0;
   font-weight: 100;
   text-align: center;
-  display: none;
+}
+.loading{
+  background: rgba(0, 0, 0, 0.6);;
+  top: 0;
+  left: 0;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+.loading ul {
+  position: absolute !important;
+  top: 50%;
+  left: 50%;
+  margin: 0;
+  padding: 0;
+  transform:translate(-50%,-50%); 
+  display: flex ;
+} 
+.loading ul li{
+  color:#f5d0d6;
+  font-size: 3em;
+  letter-spacing: 15px;
+  animation: animate 1.4s linear infinite;
+}
+@keyframes animate{
+  0%,50%{
+    color: #f5d0d6;
+    text-shadow: none;
+  }
+  
+  
+  100%{
+    color: #89CBD3;
+    text-shadow:  0 0 10px #89CBD3, 0 0 50px#f5d0d6;
+  }
+}
+.loading ul li:nth-child(1){
+  animation-delay: .2s;
+}
+.loading ul li:nth-child(2){
+  animation-delay: .4s;
+}
+.loading ul li:nth-child(3){
+  animation-delay: .6s;
+}
+.loading ul li:nth-child(4){
+  animation-delay: .8s;
+}
+.loading ul li:nth-child(5){
+  animation-delay: 1s;
+}
+.loading ul li:nth-child(6){
+  animation-delay: 1.2s;
+}
+.loading ul li:nth-child(7){
+  animation-delay: 1.4s;
+}
+.close-load {
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  right: 0;
+  
 }
 .signup-popup-content {
   height: 100%;
@@ -211,6 +276,7 @@ input,
   justify-content: center;
 }
 .signup-popup-content h1 {
+  margin-top: 2em;
   font-size: 50px;
   height: fit-content;
 }
@@ -233,7 +299,7 @@ input,
   width: fit-content;
   height: fit-content;
   justify-self: center;
-  margin: 0 9em 0 0;
+  margin: 2em 9em 0 0;
   font-weight: 300;
 }
 .radioButton {

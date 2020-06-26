@@ -37,12 +37,12 @@
         cursus eget nunc scelerisque.
       </p>
       <div id="btn-container">
-        <button type = "button"  id="login-btn" onclick="openPopup('.login')"
-          >LOG IN</button
-        >
-        <button type="button" id="signup-btn" onclick="openPopup('.signup')"
-          >SIGN UP</button
-        >
+        <button type="button" id="login-btn" onclick="openPopup('.login')">
+          LOG IN
+        </button>
+        <button type="button" id="signup-btn" onclick="openPopup('.signup')">
+          SIGN UP
+        </button>
       </div>
       <div class="login">
         <div class="login-popup-content">
@@ -71,7 +71,9 @@
       </div>
 
       <div class="signup">
+        
         <div class="signup-popup-content">
+         
           <img
             src="/images/close.svg"
             alt="close button"
@@ -129,6 +131,23 @@
           </div>
           <p class="pass-counter" id="confirm-pass">0/10</p>
           <a href="#" class="form-btn" id="submit">SIGN UP</a>
+        </div>
+        <div class="loading">
+          <ul>
+            <li>L</li>
+            <li>O</li>
+            <li>A</li>
+            <li>D</li>
+            <li>I</li>
+            <li>N</li>
+            <li>G</li>
+          </ul>
+          <img
+            src="/images/close-loading.svg"
+            alt="close button"
+            class="close-load"
+            onclick="closePopup('.loading')"
+          />
         </div>
       </div>
     </main>

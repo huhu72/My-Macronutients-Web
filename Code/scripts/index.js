@@ -18,8 +18,7 @@ submitBtn.addEventListener("click", (e) => {
     }
     //TODO handler for if no box is checked
   }
-  
-  //auth.createUserWithEmailAndPassword(email, pass);
+  auth.createUserWithEmailAndPassword(email, pass);
   database.ref("Users").set({
     Name: nameField.value,
     Email: email,
@@ -44,7 +43,6 @@ function openPopup(obj) {
 }
 
 function closePopup(obj) {
-  $(obj).css("display", "none");
   $(obj).css("display", "none");
 }
 function toggle() {
