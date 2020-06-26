@@ -137,6 +137,7 @@ input {
   font-size: 20px;
   border: none;
   border-bottom: .5px solid #707070;
+  margin-bottom: 2em;
   -webkit-appearance: none;
 }
 input[type="radio"] {
@@ -161,8 +162,7 @@ span {
   cursor: pointer;
   margin-right: 10px;
 }
-
-.form-btn {
+.form-btn  {
   color: white;
   background: #89cbd3;
   text-decoration: none;
@@ -170,8 +170,9 @@ span {
   font-size: 1.2em;
   font-weight: bold;
   border-radius: 50px;
-  width: 5em;
+  width: fit-content;
   height: fit-content;
+  cursor: pointer;
 }
 input,
 .form-btn {
@@ -209,7 +210,7 @@ input,
   position: absolute;
   height: 100%;
   width: 100%;
-  display: flex;
+  display: none;
 }
 .loading ul {
   position: absolute !important;
@@ -273,10 +274,11 @@ input,
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: 0.1fr 0.25fr 0.02fr 0.1fr 0.02fr 0.02fr 0.02fr 0.02fr 0.01fr 0.01fr;
+  row-gap: 2px;
   justify-content: center;
 }
 .signup-popup-content h1 {
-  margin-top: 2em;
+  margin-top: 1em;
   font-size: 50px;
   height: fit-content;
 }
