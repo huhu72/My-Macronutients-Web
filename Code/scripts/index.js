@@ -1,16 +1,31 @@
-var nameField = document.getElementById("name");
-var email;
-var password;
-var confirmPass = document.getElementById("confirm-pass");
-var submitBtn = document.getElementById("submit");
 var state = false;
+var checked = false;
+var password, email, name, confirm_password;
 const database = firebase.database();
 const auth = firebase.auth();
 
 function signup(obj) {
   const gender = document.querySelectorAll('input[name="gender"]');
-  this.email = document.getElementById("email").value;
-  this.password = document.getElementById("signup-pwd").value;
+  email = document.getElementById("email").value;
+  name = document.getElementById("name").value;
+  confirmPass = document.getElementById("signup-cpwd").value;
+  password = document.getElementById("signup-pwd").value;
+  var selectedVal;
+  for (const radioBtn of gender) {
+    if (radioBtn.checked) {
+      selectedVal = radioBtn.value;
+      checked = true;
+    }
+  }
+  if (!checked) {
+    $(".gender-radio").css("border", ".1px solid red");
+    alert("Please choose a gender");
+    return;
+  }
+  if(name.length == 0){
+    alert("Please put in your name");
+    return;
+  }
   if (email.length < 4) {
     alert("Please enter an email address.");
     return;
@@ -19,15 +34,16 @@ function signup(obj) {
     alert("Please enter a password.");
     return;
   }
-
-  var selectedVal;
-  for (const radioBtn of gender) {
-    if (radioBtn.checked) {
-      selectedVal = radioBtn.value;
-    }
-    //TODO handler for if no box is checked
+  if(confirmPass !=password){
+    alert("Please make sure your passwords match");
+    return;
   }
-  firebase
+  
+  
+  
+  
+  $(obj).css("display", "flex");
+  /*firebase
     .auth()
     .createUserWithEmailAndPassword(email, password)
     .catch(function (error) {
@@ -45,12 +61,11 @@ function signup(obj) {
     });
   // [END createwithemail]
   database.ref("Users").set({
-    Name: nameField.value,
+    Name: name,
     Email: email,
-    Password: pass,
+    Password: password,
     Gender: selectedVal,
-  });
-  $(obj).css("display", "flex");
+  });*/
 }
 
 function nav() {
@@ -58,14 +73,56 @@ function nav() {
   menu.classList.toggle("active");
 }
 function passCount(obj) {
-  
-  document.getElementById("pass").innerHTML = obj.value.length + "/6";
- 
+  var password_counter = document.getElementById("password-counter");
+  this.password = obj.value;
+
+  if (obj.value.length < 6) {
+    password_counter.innerHTML = obj.value.length + "/6";
+    $("#signup-pwd-wrapper").css("border-bottom", " .8px solid red");
+  } else {
+    password_counter.innerHTML = "";
+    $("#signup-pwd-wrapper").css("border-bottom", " .8px solid #707070");
+  }
 }
 function confirmCount(obj) {
-  document.getElementById("confirm-pass").innerHTML = obj.value.length + "/6";
+  var confirm_password_counter = document.getElementById(
+    "confirm-password-counter"
+  );
+  if (obj.value.length < 6) {
+    confirm_password_counter.innerHTML = obj.value.length + "/6";
+    $("#confirm-signup-pwd-wrapper").css("border-bottom", " .8px solid red");
+  } else if (obj.value != this.password) {
+    confirm_password_counter.innerHTML = "Passwords do not match";
+    $("#confirm-signup-pwd-wrapper").css("border-bottom", " .8px solid red");
+    $("#confirm-password-counter").css("color", "red");
+  } else {
+    confirm_password_counter.innerHTML = "";
+    $("#confirm-signup-pwd-wrapper").css(
+      "border-bottom",
+      " .8px solid #707070"
+    );
+  }
 }
-
+function nameCount(obj) {
+  this.name = obj.value;
+  if (obj.value.length < 1) {
+    $("#name").css("border-bottom", " .8px solid red");
+  } else {
+    $("#name").css("border-bottom", " .8px solid #707070");
+  }
+}
+function emailCount(obj) {
+  var name = document.getElementById("name").value;
+  this.email = obj.value;
+  if (obj.value.length < 5) {
+    $("#email").css("border-bottom", " .8px solid red");
+  } else {
+    $("#email").css("border-bottom", " .8px solid #707070");
+  }
+  if(name.length==0){
+    $("#name").css("border-bottom", " .8px solid red");
+  }
+}
 function openPopup(obj) {
   $(obj).css("display", "grid");
 }

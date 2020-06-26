@@ -136,7 +136,7 @@ input {
   height: 40px;
   font-size: 20px;
   border: none;
-  border-bottom: .5px solid #707070;
+  border-bottom: .8px solid #707070;
   margin-bottom: 2em;
   -webkit-appearance: none;
 }
@@ -153,7 +153,7 @@ input:checked {
 }
 #login-pwd-wrapper {
   display: inline-block;
-  border-bottom: 0.5px solid #707070;
+  border-bottom: 0.8px solid #707070;
   height: fit-content;
   width: fit-content;
   justify-self: center;
@@ -282,15 +282,14 @@ input,
   font-size: 50px;
   height: fit-content;
 }
-#signup-pwd-wrapper {
+#signup-pwd-wrapper, #confirm-signup-pwd-wrapper{
   display: inline-block;
   border:none;
-  border-bottom: .5px solid #707070;
+  border-bottom: .8px solid #707070;
   height: fit-content;
   width: fit-content;
   justify-self: center;
 }
-
 .pass-counter {
   font-size: 15px;
   height: fit-content;
@@ -304,12 +303,13 @@ input,
   margin: 2em 9em 0 0;
   font-weight: 300;
 }
-.radioButton {
-  width: 15px;
-  height: 15px;
+#male-radio, #female-radio {
+  width: 15px !important;
+  height: 15px !important;
   margin: 0;
   align-self: center;
   justify-self: center;
+  border: .1px solid #707070;
 }
 #gender-label {
   align-self: center;
@@ -322,7 +322,7 @@ input,
   width: fit-content;
   margin-left: 6em;
 }
-#female {
+.female-radio {
   margin-left: 10px;
 }
 

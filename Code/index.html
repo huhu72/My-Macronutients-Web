@@ -79,14 +79,15 @@
             alt="close button"
             class="close"
             onclick="closePopup('.signup')"
+            
           />
           <h1>Sign Up</h1>
           <p id="gender">Gender</p>
           <form id="radio-btn-container">
             <input
               type="radio"
-              class="radioButton"
-              id="male"
+              class="gender-radio"
+              id="male-radio"
               name="gender"
               value="Male"
               required
@@ -94,16 +95,16 @@
             <div id="gender-label">Male</div>
             <input
               type="radio"
-              class="radioButton"
-              id="female"
+              class="gender-radio"
+              id="female-radio"
               name="gender"
               value="Female"
               required
             />
             <div id="gender-label">Female</div>
           </form>
-          <input type="text" placeholder="Name" id="name" />
-          <input type="text" placeholder="Email" id="email" />
+          <input type="text" placeholder="Name" id="name"  onkeyup="nameCount(this)"/>
+          <input type="text" placeholder="Email" id="email" onkeyup="emailCount(this)" />
           <div id="signup-pwd-wrapper">
             <input
               type="password"
@@ -116,8 +117,8 @@
               <i class="fas fa-eye-slash" onclick="toggle()"></i>
             </span>
           </div>
-          <p class="pass-counter" id="pass"></p>
-          <div id="signup-pwd-wrapper">
+          <p class="pass-counter" id="password-counter"></p>
+          <div id="confirm-signup-pwd-wrapper">
             <input
               type="password"
               placeholder="Confirm Password"
@@ -129,7 +130,7 @@
               <i class="fas fa-eye-slash" onclick="toggle()"></i>
             </span>
           </div>
-          <p class="pass-counter" id="confirm-pass"></p>
+          <p class="pass-counter" id="confirm-password-counter"></p>
           <button type="button" class="form-btn" id="submit" onclick="signup('.loading')">SIGN UP</button>
         </div>
         <div class="loading">
