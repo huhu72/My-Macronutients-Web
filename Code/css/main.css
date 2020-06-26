@@ -470,7 +470,7 @@ input,
 		transition: 0.2s transform ease-in-out, 0.2s -webkit-transform ease-in-out;
 		will-change: transform;
     z-index: 0;
- 
+    outline: none;
 	  }
 	  button::after {
 		background-color: #e3eeff;
