@@ -346,7 +346,6 @@ input,
   }
   #avatar {
     border-radius: 50%;
-    /*background-color: white;*/
     width: 50px;
     height: 50px;
     margin: 2em auto 1em auto;
@@ -358,7 +357,7 @@ input,
     display: block;
     margin-top: 2em;
     position: relative !important;
-    background: none !important;
+    background: none ;
     width: 100% !important;
   }
   ul li a:hover {
@@ -411,6 +410,7 @@ input,
     border-radius: 5px;
     margin: auto;
   }
+ 
   .close {
     display: grid;
   }
@@ -440,7 +440,7 @@ input,
  
     margin: 0;
     padding: 0;
-    width: fit-content !important;
+    justify-content: center;
   } 
   .close-load {
     display: grid;

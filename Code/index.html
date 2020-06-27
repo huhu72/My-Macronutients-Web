@@ -29,7 +29,7 @@
       </nav>
     </aside>
     <main>
-      <h1>Welcome</h1>
+      <h1 id="welcome">Welcome</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Lectus vestibulum
@@ -53,7 +53,7 @@
             onclick="closePopup('.login')"
           />
           <h1>Log In</h1>
-          <input type="text" placeholder="Email" />
+          <input type="text" placeholder="Email" id="login-email" />
           <div id="login-pwd-wrapper">
             <input
               type="password"
@@ -65,7 +65,7 @@
               <i class="fas fa-eye-slash" onclick="toggle()"></i>
             </span>
           </div>
-          <a href="#" class="form-btn">LOG IN</a>
+          <button type="button" class="form-btn" onclick="login('.loading')">LOG IN</button>
           <a href="#" id="forgot">Forgot password?</a>
         </div>
       </div>
@@ -133,26 +133,26 @@
           <p class="pass-counter" id="confirm-password-counter"></p>
           <button type="button" class="form-btn" id="submit" onclick="signup('.loading')">SIGN UP</button>
         </div>
-        <div class="loading">
-          <img
-            src="/images/close-loading.svg"
-            alt="close button"
-            class="close-load"
-            onclick="closePopup('.loading')"
-          />
-         
-          <ul>
-            <li>L</li>
-            <li>O</li>
-            <li>A</li>
-            <li>D</li>
-            <li>I</li>
-            <li>N</li>
-            <li>G</li>
-          </ul>
-     
-          
-        </div>
+      </div>
+      <div class="loading">
+        <img
+          src="/images/close-loading.svg"
+          alt="close button"
+          class="close-load"
+          onclick="closePopup('.loading')"
+        />
+       
+        <ul>
+          <li>L</li>
+          <li>O</li>
+          <li>A</li>
+          <li>D</li>
+          <li>I</li>
+          <li>N</li>
+          <li>G</li>
+        </ul>
+   
+        
       </div>
     </main>
     <!-- The core Firebase JS SDK is always required and must be listed first -->

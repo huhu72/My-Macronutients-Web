@@ -1,10 +1,11 @@
 var state = false;
 var checked = false;
+var welcome = document.getElementById("welcome");
 var password, email, name, confirm_password;
 const database = firebase.database();
 const auth = firebase.auth();
 
-function signup(obj) {
+function signup(loading) {
   const gender = document.querySelectorAll('input[name="gender"]');
   email = document.getElementById("email").value;
   name = document.getElementById("name").value;
@@ -17,7 +18,7 @@ function signup(obj) {
       checked = true;
     }
   }
-  /*if (!checked) {
+  if (!checked) {
     $(".gender-radio").css("border", ".1px solid red");
     alert("Please choose a gender");
     return;
@@ -61,14 +62,80 @@ function signup(obj) {
     Email: email,
     Password: password,
     Gender: selectedVal,
-  });*/
-  $(obj).css("display", "grid");
+  });
+
+  $(loading).css("display", "grid");
   setTimeout(function () {
-    $(obj).css("display", "none");
+    $(loading).css("display", "none");
     $(".signup").css("display", "none");
+    firebase.auth().onAuthStateChanged(function (user) {
+      if (user) {
+        user
+          .updateProfile({
+            displayName: name,
+          })
+          .then(function () {
+            welcome.innerHTML = "Welcome " + user.displayName;
+            $("#signup-btn").css("display", "none");
+            $("#login-btn").css("display", "none");
+          })
+          .catch(function (error) {
+            alert(error);
+          });
+        console.log("Signed in");
+      } else {
+        firebaseSignIn(email, password);
+        user
+          .updateProfile({
+            displayName: name,
+          })
+          .then(function () {
+            welcome.innerHTML = "Welcome " + user.displayName;
+            $("#signup-btn").css("display", "none");
+            $("#login-btn").css("display", "none");
+          })
+          .catch(function (error) {
+            alert(error);
+          });
+      }
+    });
   }, 2800);
 }
+function login(loading) {
+  var email = document.getElementById("login-email").value;
+  var password = document.getElementById("login-pwd").value;
+  var user = firebase.auth().currentUser;
+  $(loading).css("display", "grid");
+  setTimeout(function () {
+    $(loading).css("display", "none");
+    firebaseSignIn(email, password);
+    if (user) {
+      welcome.innerHTML = "Welcome " + user.displayName;
+      $("#signup-btn").css("display", "none");
+      $("#login-btn").css("display", "none");
+      $(".login").css("display", "none");
+    } else {
+      return;
+    }
+  }, 2800);
+}
+function firebaseSignIn(email, password) {
+  firebase
+    .auth()
+    .signInWithEmailAndPassword(email, password)
+    .catch(function (error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
 
+      if (errorCode === "auth/wrong-password") {
+        alert("Wrong password.");
+      } else {
+        alert(errorMessage);
+      }
+      console.log(error);
+    });
+}
 function nav() {
   var menu = document.querySelector("ul");
   menu.classList.toggle("active");
