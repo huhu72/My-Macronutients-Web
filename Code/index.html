@@ -11,6 +11,7 @@
       src="https://kit.fontawesome.com/16b426a836.js"
       crossorigin="anonymous"
     ></script>
+
   </head>
   <body>
     <aside>
@@ -25,6 +26,7 @@
           <li><a href="calculator.html">Calculator</a></li>
           <li><a href="index.html">Progress</a></li>
           <li><a href="index.html">FAQ</a></li>
+          <li id="logout" onclick="logout()"><a href="#">Log Out</a></li>
         </ul>
       </nav>
     </aside>
@@ -65,21 +67,20 @@
               <i class="fas fa-eye-slash" onclick="toggle()"></i>
             </span>
           </div>
-          <button type="button" class="form-btn" onclick="login('.loading')">LOG IN</button>
+          <button type="button" class="form-btn" id="login"  onclick="login()">
+            LOG IN
+          </button>
           <a href="#" id="forgot">Forgot password?</a>
         </div>
       </div>
 
       <div class="signup">
-        
         <div class="signup-popup-content">
-         
           <img
             src="/images/close.svg"
             alt="close button"
             class="close"
             onclick="closePopup('.signup')"
-            
           />
           <h1>Sign Up</h1>
           <p id="gender">Gender</p>
@@ -90,6 +91,7 @@
               id="male-radio"
               name="gender"
               value="Male"
+              checked= "true"
               required
             />
             <div id="gender-label">Male</div>
@@ -103,8 +105,20 @@
             />
             <div id="gender-label">Female</div>
           </form>
-          <input type="text" placeholder="Name" id="name"  onkeyup="nameCount(this)"/>
-          <input type="text" placeholder="Email" id="email" onkeyup="emailCount(this)" />
+          <input
+            type="text"
+            placeholder="Name"
+            id="name"
+            onkeyup="nameCount(this)"
+            value = "t"
+          />
+          <input
+            type="text"
+            placeholder="Email"
+            id="email"
+            onkeyup="emailCount(this)"
+            value = "t@t.com"
+          />
           <div id="signup-pwd-wrapper">
             <input
               type="password"
@@ -112,6 +126,7 @@
               onkeyup="passCount(this)"
               class="pwd"
               id="signup-pwd"
+              value="qwertyuiop"
             />
             <span id="eye">
               <i class="fas fa-eye-slash" onclick="toggle()"></i>
@@ -125,13 +140,21 @@
               onkeyup="confirmCount(this)"
               id="signup-cpwd"
               class="pwd"
+              value="qwertyuiop"
             />
             <span id="eye">
               <i class="fas fa-eye-slash" onclick="toggle()"></i>
             </span>
           </div>
           <p class="pass-counter" id="confirm-password-counter"></p>
-          <button type="button" class="form-btn" id="submit" onclick="signup('.loading')">SIGN UP</button>
+          <button
+            type="button"
+            class="form-btn"
+            id="submit"
+            onclick="signup()"
+          >
+            SIGN UP
+          </button>
         </div>
       </div>
       <div class="loading">
@@ -141,7 +164,7 @@
           class="close-load"
           onclick="closePopup('.loading')"
         />
-       
+
         <ul>
           <li>L</li>
           <li>O</li>
@@ -151,8 +174,6 @@
           <li>N</li>
           <li>G</li>
         </ul>
-   
-        
       </div>
     </main>
     <!-- The core Firebase JS SDK is always required and must be listed first -->

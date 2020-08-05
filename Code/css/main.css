@@ -77,6 +77,9 @@ ul li a {
 ul #Home {
   background-color: #c4d8f0;
 }
+#logout{
+  display: none ;
+}
 main {
   background: rgba(255, 255, 255, 0.3);
   padding: 1em 1.4em;
@@ -347,6 +350,7 @@ input,
   #avatar {
     border-radius: 50%;
     width: 50px;
+   
     height: 50px;
     margin: 2em auto 1em auto;
   }
@@ -472,7 +476,7 @@ input,
     z-index: 0;
     outline: none;
 	  }
-	  button::after {
+	button::after {
 		background-color: #e3eeff;
 		border-radius: 3rem;
 		content: '';

@@ -79,3 +79,21 @@ function calcMacros(weight, userSelection, calories) {
   document.getElementById("fat-calc").innerHTML = fats + "g";
   document.getElementById("fat-cal-calc").innerHTML = fatCalories;
 }
+function getCookie(cookieName) {
+  cookieName += "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var cookieArray = decodedCookie.split(";");
+  console.log(cookieName);
+  console.log(cookieArray);
+  console.log(cookieArray[0].indexOf(cookieName));
+  for (var i = 0; i < cookieArray.length; i++) {
+    var cookiePair = cookieArray[i];
+    while (cookiePair.charAt(0) == " ") {
+      cookiePair = cookiePair.substring(1);
+    }
+    if (cookiePair.indexOf(cookieName) == 0) {
+      return cookiePair.substring(cookieName.length, cookiePair.length);
+    }
+  }
+  return "";
+}

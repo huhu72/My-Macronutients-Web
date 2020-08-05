@@ -88,6 +88,31 @@
         <button type="button" >SAVE</button>
       </div>
     </main>
+     <!-- The core Firebase JS SDK is always required and must be listed first -->
+     <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
+
+     <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+     <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-analytics.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
+ 
+     <script>
+       // Your web app's Firebase configuration
+       var firebaseConfig = {
+         apiKey: "AIzaSyAv84CmXMfIZqVHY6EQJMtvHmdS8IrpnHs",
+         authDomain: "my-macronutrients-66f0f.firebaseapp.com",
+         databaseURL: "https://my-macronutrients-66f0f.firebaseio.com",
+         projectId: "my-macronutrients-66f0f",
+         storageBucket: "my-macronutrients-66f0f.appspot.com",
+         messagingSenderId: "267698336374",
+         appId: "1:267698336374:web:72a360586901ccf0726557",
+         measurementId: "G-WMLW1MHJQ3",
+       };
+       // Initialize Firebase
+       firebase.initializeApp(firebaseConfig);
+       firebase.analytics();
+     </script>
     <script src="/scripts/calculator.js"></script>
   </body>
 </html>
