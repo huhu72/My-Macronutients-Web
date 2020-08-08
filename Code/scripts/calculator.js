@@ -1,10 +1,8 @@
-var email, password;
+var multiplier, calories, userSelection, gender, weight, email, password;
 function nav() {
   var menu = document.querySelector("ul ");
   menu.classList.toggle("active");
 }
-var multiplier, calories, userSelection, gender;
-var weight;
 function calculate() {
   var w = parseInt(window.innerWidth);
   if (w >= 768) {
@@ -106,8 +104,6 @@ function initApp() {
       window.user = user;
       window.userID = user.uid;
       username.innerHTML = user.displayName;
-      $("#logout").css("display", "block");
-      $("#radio-btn-container").css("display","none");
       uGender();
       $("#nav-logout").css("display", "grid");
       $("#nav-login").css("display", "none");
@@ -116,6 +112,7 @@ function initApp() {
     } else {
       $(".loading").css("display", "none");
       $("#nav-login").css("display", "grid");
+     
     }
   });
 }

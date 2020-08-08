@@ -22,8 +22,8 @@
       <nav>
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li id="calculator"><a href="cd.html">Calculator</a></li>
-          <li><a href="index.html">Progress</a></li>
+          <li><a href="calculator.html">Calculator</a></li>
+          <li><a href="progress.html">Progress</a></li>
           <li><a href="index.html">FAQ</a></li>
           <div id="nav-footer">
             <button id="nav-login" onclick="openPopup('.login')">Log In</button>
@@ -33,29 +33,6 @@
       </nav>
     </aside>
     <main>
-          <div id="btn-wrapper">
-            <button type="button" class="animate" onclick="add()">ADD</button>
-            <button type="button" class="animate"onclick="calculate()">CALCULATE</button>
-            <button type="button" class="animate"onclick="subtract()">SUBTRACT</button>
-            <button type="button" class="animate">SAVE</button>
-            <div class="loading">
-              <img
-                src="/images/close-loading.svg"
-                alt="close button"
-                class="close-load"
-                onclick="closePopup('.login')"
-              />
-      
-              <ul>
-                <li>L</li>
-                <li>O</li>
-                <li>A</li>
-                <li>D</li>
-                <li>I</li>
-                <li>N</li>
-                <li>G</li>
-              </ul>
-          </div>
       <div class="login">
         <div class="login-popup-content">
           <img
@@ -94,9 +71,19 @@
           src="/images/close-loading.svg"
           alt="close button"
           class="close-load"
-          onclick="closePopup('.loading')"
+          onclick="closePopup('.login')"
         />
-      </div>
+
+        <ul>
+          <li>L</li>
+          <li>O</li>
+          <li>A</li>
+          <li>D</li>
+          <li>I</li>
+          <li>N</li>
+          <li>G</li>
+        </ul>
+    </div>
     </main>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
