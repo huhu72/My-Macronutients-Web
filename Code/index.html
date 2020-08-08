@@ -11,23 +11,26 @@
       src="https://kit.fontawesome.com/16b426a836.js"
       crossorigin="anonymous"
     ></script>
-
   </head>
   <body>
     <aside>
       <figure>
         <div id="avatar"></div>
-        <figcaption id = username></figcaption>
+        <figcaption id="username"></figcaption>
       </figure>
       <img src="/images/menu.svg" onclick="nav()" />
       <nav>
         <ul>
           <li id="Home"><a href="index.html">Home</a></li>
-          <li><a href="calculator.html">Calculator</a></li>
+          <li><a href="cd.html">Calculator</a></li>
           <li><a href="index.html">Progress</a></li>
           <li><a href="index.html">FAQ</a></li>
-          <li id="logout" onclick="logout()"><a href="#">Log Out</a></li>
+          <div id="nav-footer">
+            <button id="nav-login">Log In</button>
+            <button id="nav-logout" onclick="logout()">Log Out</button>
+          </div>
         </ul>
+        
       </nav>
     </aside>
     <main>
@@ -39,10 +42,20 @@
         cursus eget nunc scelerisque.
       </p>
       <div id="btn-container">
-        <button type="button" id="login-btn" onclick="openPopup('.login')">
+        <button
+          type="button"
+          id="login-btn"
+          class="animate"
+          onclick="openPopup('.login')"
+        >
           LOG IN
         </button>
-        <button type="button" id="signup-btn" onclick="openPopup('.signup')">
+        <button
+          type="button"
+          id="signup-btn"
+          class="animate"
+          onclick="openPopup('.signup')"
+        >
           SIGN UP
         </button>
       </div>
@@ -67,7 +80,12 @@
               <i class="fas fa-eye-slash" onclick="toggle()"></i>
             </span>
           </div>
-          <button type="button" class="form-btn" id="login"  onclick="login()">
+          <button
+            type="button"
+            class="form-btn animate"
+            id="login"
+            onclick="login()"
+          >
             LOG IN
           </button>
           <a href="#" id="forgot">Forgot password?</a>
@@ -91,7 +109,7 @@
               id="male-radio"
               name="gender"
               value="Male"
-              checked= "true"
+              checked="true"
               required
             />
             <div id="gender-label">Male</div>
@@ -110,14 +128,14 @@
             placeholder="Name"
             id="name"
             onkeyup="nameCount(this)"
-            value = "t"
+            value="t"
           />
           <input
             type="text"
             placeholder="Email"
             id="email"
             onkeyup="emailCount(this)"
-            value = "t@t.com"
+            value="t@t.com"
           />
           <div id="signup-pwd-wrapper">
             <input
@@ -149,7 +167,7 @@
           <p class="pass-counter" id="confirm-password-counter"></p>
           <button
             type="button"
-            class="form-btn"
+            class="form-btn animate"
             id="submit"
             onclick="signup()"
           >

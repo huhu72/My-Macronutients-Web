@@ -33,58 +33,6 @@
       </nav>
     </aside>
     <main>
-        <div id="input-container">
-            <div class="label" id="weightlbl">Enter Weight:</div>
-            <!--delete value later (done)-->
-            <input for type="text" placeholder="Weight" id="weight" />
-            <div class="label">lbs</div>
-            <!---dropdown box-->
-            <label class="label" for="goals">I want to:</label>
-            <select id="goals" name="goals">
-              <option value="Cut">Cut</option>
-              <option value="Maintain" selected>Maintain</option>
-              <option value="Bulk">Bulk</option>
-            </select>
-            <!----------------->
-          </div> 
-          <div id="radio-btn-container">
-            <input
-              type="radio"
-              class="radioButton"
-              id="male"
-              name="gender"
-              value="Male"
-              required
-            />
-            <div id="gender-label">Male</div>
-            <input
-              type="radio"
-              class="radioButton"
-              id="female"
-              name="gender"
-              value="Female"
-              required
-            />
-            <div id="gender-label">Female</div>
-          </div>
-          <div id="content-wrapper">
-            <div class="label" id="protein-label">Proteins:</div>
-            <div class="calculation" id="protein-calc">000g</div>
-            <div class="label" id="carb-label">Carbohydrates:</div>
-            <div class="calculation" id="carb-calc">000g</div>
-            <div class="label" id="fat-label">Fat:</div>
-            <div class="calculation" id="fat-calc">000g</div>
-            <div class="label" id="protein-cal-label">Protein Calories:</div>
-            <div class="calculation" id="protein-cal-calc">0000</div>
-            <div class="label" id="carb-cal-label">Carb Calories:</div>
-            <div class="calculation" id="carb-cal-calc">0000</div>
-            <div class="label" id="fat-cal-label">Fat Calories:</div>
-            <div class="calculation" id="fat-cal-calc">0000</div>
-            <div class="label" id="filler"></div>
-            <div class="calculation" id="filler2"></div>
-            <div class="label" id="calories-label">Total Calories:</div>
-            <div class="calculation" id="calories-calc"></div>
-          </div>
           <div id="btn-wrapper">
             <button type="button" class="animate" onclick="add()">ADD</button>
             <button type="button" class="animate"onclick="calculate()">CALCULATE</button>

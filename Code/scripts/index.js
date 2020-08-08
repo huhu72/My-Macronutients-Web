@@ -235,7 +235,7 @@ function initApp() {
       $("#login-btn").css("display", "none");
       $(".login").css("display", "none");
       $(".signup").css("display", "none");
-      $("#logout").css("display", "block");
+      $("#nav-logout").css("display", "grid");
       uGender();
     } else {
       $(".loading").css("display", "none");

@@ -28,3 +28,37 @@ function setCookie(name, value) {
     document.cookie = "email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     document.cookie = "password=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
   }
+  function firebaseSignIn(email, password) {
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .catch(function (error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+  
+        if (errorCode === "auth/wrong-password") {
+          alert("Wrong password.");
+          $(".loading").css("display", "none");
+          return;
+        } else {
+          alert(errorMessage);
+        }
+        console.log(error);
+      });
+  }
+  function logout() {
+    firebase
+      .auth()
+      .signOut()
+      .then(
+        function () {
+          location.reload();
+          console.log("Signed Out");
+        },
+        function (error) {
+          console.error("Sign Out Error", error);
+        }
+      );
+    deleteCookie();
+  }

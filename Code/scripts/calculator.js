@@ -1,5 +1,6 @@
+var email, password;
 function nav() {
-  var menu = document.querySelector("ul");
+  var menu = document.querySelector("ul ");
   menu.classList.toggle("active");
 }
 var multiplier, calories, userSelection, gender;
@@ -79,21 +80,69 @@ function calcMacros(weight, userSelection, calories) {
   document.getElementById("fat-calc").innerHTML = fats + "g";
   document.getElementById("fat-cal-calc").innerHTML = fatCalories;
 }
-function getCookie(cookieName) {
-  cookieName += "=";
-  var decodedCookie = decodeURIComponent(document.cookie);
-  var cookieArray = decodedCookie.split(";");
-  console.log(cookieName);
-  console.log(cookieArray);
-  console.log(cookieArray[0].indexOf(cookieName));
-  for (var i = 0; i < cookieArray.length; i++) {
-    var cookiePair = cookieArray[i];
-    while (cookiePair.charAt(0) == " ") {
-      cookiePair = cookiePair.substring(1);
-    }
-    if (cookiePair.indexOf(cookieName) == 0) {
-      return cookiePair.substring(cookieName.length, cookiePair.length);
-    }
+
+//Logs in user and make changes to the page
+function login() {
+  //User is signed in
+  if (firebase.auth().currentUser) {
+    firebase.auth().signOut();
   }
-  return "";
+  //logs in the user
+  else {
+    window.email = document.getElementById("login-email").value;
+    window.password = document.getElementById("login-pwd").value;
+    if (email.length < 4 || password.length < 4) {
+      alert("Please enter a valid log in information");
+      return;
+    }
+    firebaseSignIn(email, password);
+    setCookie("email", email);
+    setCookie("password", password);
+  }
+}
+function initApp() {
+  firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+      window.user = user;
+      window.userID = user.uid;
+      username.innerHTML = user.displayName;
+      $("#logout").css("display", "block");
+      $("#radio-btn-container").css("display","none");
+      uGender();
+      $("#nav-logout").css("display", "grid");
+      $("#nav-login").css("display", "none");
+      $(".login").css("display","none");
+
+    } else {
+      $(".loading").css("display", "none");
+      $("#nav-login").css("display", "grid");
+    }
+  });
+}
+function uGender() {
+  var genderDBReference = firebase
+    .database()
+    .ref("Users/" + userID + "/Gender");
+  genderDBReference
+    .once("value", function (snap) {
+      userGender = snap.val();
+    })
+    .then(function () {
+      if (userGender == "Male") {
+        $("#avatar").css("background-image", "url(/images/male.svg)");
+      } else {
+        $("#avatar").css("background-image", "url(/images/female.svg)");
+      }
+      $(".loading").css("display", "none");
+    });
+}
+window.onload = function () {
+  $(".loading").css("display", "grid");
+  initApp();
+};
+function openPopup(obj) {
+  $(obj).css("display", "grid");
+}
+function closePopup(obj) {
+  $(obj).css("display", "none");
 }
