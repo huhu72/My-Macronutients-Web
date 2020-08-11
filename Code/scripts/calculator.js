@@ -1,8 +1,5 @@
-var multiplier, calories, userSelection, gender, weight, email, password;
-function nav() {
-  var menu = document.querySelector("ul ");
-  menu.classList.toggle("active");
-}
+var multiplier, calories, userSelection, gender, weight, email, password, userID;
+
 function calculate() {
   var w = parseInt(window.innerWidth);
   if (w >= 768) {
@@ -16,17 +13,16 @@ function calculate() {
   }
   $(".calculation").css("display", "inline");
 
-  this.gender = $("input[name=gender]:checked").val();
+  window.gender = $("input[name=gender]:checked").val();
   if (gender == "Female") {
-    this.multiplier = 12;
+    window.multiplier = 12;
   } else {
     this.multiplier = 15;
   }
-  this.weight = document.getElementById("weight").value;
-  this.userSelection = document.getElementById("goals").value;
-  this.calories = calcCalories(weight, multiplier);
+  window.weight = document.getElementById("weight").value;
+  window.userSelection = document.getElementById("goals").value;
+  window.calories = calcCalories(weight, multiplier);
   calcMacros(weight, userSelection, calories);
-  console.log(weight);
 }
 function add() {
   this.gender = $("input[name=gender]:checked").val();
@@ -58,7 +54,7 @@ function calcMacros(weight, userSelection, calories) {
   } else if (userSelection == "Bulk") {
     proteinPercentage = 0.8;
     fatPercentage = 0.25;
-    calories = calories + 250; 
+    calories = calories + 250;
   } else {
     proteinPercentage = 0.8;
     fatPercentage = 0.2;
@@ -78,68 +74,25 @@ function calcMacros(weight, userSelection, calories) {
   document.getElementById("fat-calc").innerHTML = fats + "g";
   document.getElementById("fat-cal-calc").innerHTML = fatCalories;
 }
-
-//Logs in user and make changes to the page
-function login() {
-  //User is signed in
-  if (firebase.auth().currentUser) {
-    firebase.auth().signOut();
-  }
-  //logs in the user
-  else {
-    window.email = document.getElementById("login-email").value;
-    window.password = document.getElementById("login-pwd").value;
-    if (email.length < 4 || password.length < 4) {
-      alert("Please enter a valid log in information");
-      return;
-    }
-    firebaseSignIn(email, password);
-    setCookie("email", email);
-    setCookie("password", password);
+function save() {
+  var d = new Date();
+  var date = d.getUTCDate();
+  var month = d.getUTCMonth() + 1; // Since getUTCMonth() returns month from 0-11 not 1-12
+  var year = d.getUTCFullYear();
+  var dateStr = date + "-" + month + "-" + year;
+  if (weight === void 0) {
+    alert("Please calculate your macros first");
+  } else {
+    database
+      .ref("Users/" + auth.currentUser.uid + "/Macros/" +dateStr )
+      .set({
+        Protein: 2
+      });
   }
 }
-function initApp() {
-  firebase.auth().onAuthStateChanged(function (user) {
-    if (user) {
-      window.user = user;
-      window.userID = user.uid;
-      username.innerHTML = user.displayName;
-      uGender();
-      $("#nav-logout").css("display", "grid");
-      $("#nav-login").css("display", "none");
-      $(".login").css("display","none");
 
-    } else {
-      $(".loading").css("display", "none");
-      $("#nav-login").css("display", "grid");
-     
-    }
-  });
-}
-function uGender() {
-  var genderDBReference = firebase
-    .database()
-    .ref("Users/" + userID + "/Gender");
-  genderDBReference
-    .once("value", function (snap) {
-      userGender = snap.val();
-    })
-    .then(function () {
-      if (userGender == "Male") {
-        $("#avatar").css("background-image", "url(/images/male.svg)");
-      } else {
-        $("#avatar").css("background-image", "url(/images/female.svg)");
-      }
-      $(".loading").css("display", "none");
-    });
-}
 window.onload = function () {
   $(".loading").css("display", "grid");
-  initApp();
+  initApp("calc");
 };
-function openPopup(obj) {
-  $(obj).css("display", "grid");
-}
-function closePopup(obj) {
-  $(obj).css("display", "none");
-}
+

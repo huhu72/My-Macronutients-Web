@@ -46,21 +46,19 @@ figure {
 figcaption {
   font-size: 1.3em;
   font-weight: bold;
+  text-transform: capitalize;
 }
 nav {
   background: #c4d8f0;
 }
 #nav-footer {
-  display: grid;
-  grid-template-columns: auto;
-  width: 100%;
   position: absolute;
-  bottom: 30px;
-  margin: 0;
+  display: block;
+  width: 100%;
+  top: 90%;
 }
 #nav-footer button {
-  justify-self: center;
-  width: max-content;
+  width: 100%;
   background: none;
   border: none;
   text-decoration: none;
@@ -70,7 +68,6 @@ nav {
   font-size: medium;
   cursor: pointer;
   text-transform: uppercase;
-  display: grid;
 }
 .active {
   position: absolute;
@@ -96,13 +93,22 @@ ul li a {
   background: rgba(255, 255, 255, 0.3);
   color: #707070;
 }
-ul #progress {
+ul #Home {
   background-color: #c4d8f0;
 }
+
 main {
   background: rgba(255, 255, 255, 0.3);
   padding: 1em 1.4em;
   color: #707070;
+}
+h1 {
+  margin: 0;
+  text-align: center;
+}
+p {
+  font-size: 1.5em;
+  line-height: 1.5em;
 }
 .animate {
   color: white;
@@ -115,7 +121,6 @@ main {
   font-weight: bold;
   border-radius: 50px;
   cursor: pointer;
-  margin-top: 1em;
 }
 
 .login {
@@ -142,22 +147,15 @@ main {
   font-size: 50px;
   height: fit-content;
 }
-#login-pwd,
-#login-email {
+input {
   width: 300px;
   height: 40px;
   font-size: 20px;
   border: none;
+  border-bottom: 0.8px solid #707070;
+  margin-bottom: 2em;
   -webkit-appearance: none;
 }
-#login-email {
-  border-bottom: 0.8px solid #707070;
-}
-#login-pwd {
-  margin-bottom: 0px;
-  width: 267px;
-}
-
 .pwd {
   width: 267px;
   border: none;
@@ -181,9 +179,8 @@ span {
 }
 input,
 .form-btn {
-  margin: 1em auto 0 auto;
+  margin: 0 auto;
 }
-
 #forgot {
   text-decoration: none;
   font-size: 15px;
@@ -198,6 +195,7 @@ input,
   width: 30px;
   justify-self: end;
 }
+
 .loading {
   background: rgba(0, 0, 0, 0.6);
   top: 0;
@@ -207,7 +205,6 @@ input,
   width: 100%;
   display: none;
 }
-
 .loading ul {
   position: absolute !important;
   display: grid;
@@ -260,7 +257,6 @@ input,
   justify-self: end;
 }
 
-
 @media only screen and (min-width: 768px) {
   body {
     display: grid;
@@ -274,23 +270,25 @@ input,
   aside {
     color: #707070;
     grid-template-columns: auto;
-    grid-template-rows: 10em auto;
+    grid-template-rows: 13em auto;
     padding: 0;
   }
   main {
-    padding: 2.5em 1.4em;
+    padding: 4em;
     background: rgba(255, 255, 255, 0.3) url("../images/bg.svg") no-repeat
       bottom right;
     background-size: 70%;
   }
   #avatar {
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 100px;
     margin: 2em auto 1em auto;
   }
   figcaption {
     text-align: center;
+    font-size: 1.5vw;
   }
   ul {
     display: block;
@@ -298,35 +296,31 @@ input,
     background: none;
     width: 100% !important;
   }
+  ul li a {
+    font-size: 1vw;
+  }
   ul li a:hover {
     background-color: white;
   }
   #nav-footer {
-    display: grid;
-    grid-template-columns: auto;
-    width: 100%;
     position: absolute;
-    bottom: -300px;
+    top: 35vw;
   }
   #nav-footer button {
-    justify-self: center;
-    width: max-content;
-    background: none;
-    border: none;
-    text-decoration: none;
-    font-family: "Montserrat" !important;
-    color: #707070;
-    overflow: hidden;
-    font-size: medium;
-    cursor: pointer;
-    text-transform: uppercase;
-    display: none;
+    font-size: 1.2vw;
   }
   figure {
     background: #c4d8f0;
   }
+  h1 {
+    font-size: 3em;
+    margin-top: 1em;
+  }
 
-  ul #progress {
+  p {
+    font-size: 1.5em;
+  }
+  ul #Home {
     background-color: rgba(255, 255, 255, 0.5);
   }
   body {
@@ -351,7 +345,11 @@ input,
     background-repeat: no-repeat;
     background-attachment: fixed;
   }
-
+  #btn-container {
+    margin-top: 10em;
+    grid-template-columns: auto auto;
+    column-gap: 40px;
+  }
   .login-popup-content {
     height: 300px;
     width: 500px;
@@ -359,20 +357,20 @@ input,
     border-radius: 5px;
     margin: auto;
   }
+  .non-member h2 {
+    width: fit-content;
+    margin: 25% 0 0 0;
+  }
 
   .close {
     display: grid;
   }
   .form-btn {
-    margin-top: 1em !important;
+    margin-top: 1em;
   }
   .login-popup-content h1 {
     margin-top: -0.5em;
     margin-bottom: 10px;
-  }
-  #login-email,
-  #login-pwd {
-    margin: 0 auto !important;
   }
   .login {
     background: rgba(0, 0, 0, 0.6);
@@ -389,7 +387,13 @@ input,
     width: 50px;
     height: 50px;
   }
-
+  .signup {
+    background: rgba(0, 0, 0, 0.6);
+  }
+  #gender {
+    width: 100px;
+    margin: 0 9em 0 0;
+  }
   .animate {
     border: 2px solid #e3eeff;
     font-size: 3vh;
@@ -407,7 +411,6 @@ input,
     will-change: transform;
     z-index: 0;
     outline: none;
-    margin-top: 0;
   }
   .animate::after {
     background-color: #e3eeff;
@@ -445,14 +448,4 @@ input,
     color: white;
   }
 
-  .loading ul {
-    margin: 0;
-    padding: 0;
-    justify-content: center;
-  }
-  .close-load {
-    display: grid;
-    width: 50px;
-    height: 50px;
-  }
 }

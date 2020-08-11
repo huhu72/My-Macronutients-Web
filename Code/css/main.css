@@ -46,21 +46,19 @@ figure {
 figcaption {
   font-size: 1.3em;
   font-weight: bold;
+  text-transform: capitalize;
 }
 nav {
   background: #c4d8f0;
 }
 #nav-footer {
-  display: grid;
-  grid-template-columns: auto;
-  width: 100%;
   position: absolute;
-  bottom: 30px;
-  margin: 0;
+  display: block;
+  width: 100%;
+  top: 90%;
 }
 #nav-footer button {
-  justify-self: center;
-  width: max-content;
+  width: 100%;
   background: none;
   border: none;
   text-decoration: none;
@@ -188,9 +186,9 @@ span {
 }
 .form-btn {
   padding: 8px 30px !important;
-font-size: 1.2em !important;
-width: fit-content !important;
-height: fit-content ! important;
+  font-size: 1.2em !important;
+  width: fit-content !important;
+  height: fit-content !important;
 }
 input,
 .form-btn {
@@ -354,7 +352,7 @@ input,
   aside {
     color: #707070;
     grid-template-columns: auto;
-    grid-template-rows: 10em auto;
+    grid-template-rows: 13em auto;
     padding: 0;
   }
   main {
@@ -365,12 +363,14 @@ input,
   }
   #avatar {
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 100px;
     margin: 2em auto 1em auto;
   }
   figcaption {
     text-align: center;
+    font-size: 1.5vw;
   }
   ul {
     display: block;
@@ -378,29 +378,18 @@ input,
     background: none;
     width: 100% !important;
   }
+  ul li a {
+    font-size: 1vw;
+  }
   ul li a:hover {
     background-color: white;
   }
   #nav-footer {
-    display: grid;
-    grid-template-columns: auto;
-    width: 100%;
     position: absolute;
-    bottom: -300px;
+    top: 35vw;
   }
   #nav-footer button {
-    justify-self: center;
-    width: max-content;
-    background: none;
-    border: none;
-    text-decoration: none;
-    font-family: "Montserrat" !important;
-    color: #707070;
-    overflow: hidden;
-    font-size: medium;
-    cursor: pointer;
-    text-transform: uppercase;
-    display: none;
+    font-size: 1.2vw;
   }
   figure {
     background: #c4d8f0;
@@ -409,6 +398,7 @@ input,
     font-size: 3em;
     margin-top: 1em;
   }
+
   p {
     font-size: 1.5em;
   }
@@ -457,7 +447,7 @@ input,
     margin-top: 1em;
   }
   .login-popup-content h1 {
-    margin-top: -.5em;
+    margin-top: -0.5em;
     margin-bottom: 10px;
   }
   .login {
