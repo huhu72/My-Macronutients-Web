@@ -1,70 +1,43 @@
-var email, password;
+var ctx = document.getElementById('myChart').getContext('2d');
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
 window.onload = function () {
     $(".loading").css("display", "grid");
-    initApp();
+    initApp("progress");
   }
-  function nav() {
-    var menu = document.querySelector("ul ");
-    menu.classList.toggle("active");
-  }
-  function openPopup(obj) {
-    $(obj).css("display", "grid");
-  }
-  function closePopup(obj) {
-    $(obj).css("display", "none");
-  }
-  function initApp() {
-    firebase.auth().onAuthStateChanged(function (user) {
-      if (user) {
-        window.user = user;
-        window.userID = user.uid;
-        username.innerHTML = user.displayName;
-        $("#logout").css("display", "block");
-        uGender();
-        $("#nav-logout").css("display", "grid");
-        $("#nav-login").css("display", "none");
-        $(".login").css("display","none");
-        $(".non-member").css("display", "none")
-  
-      } else {
-        $(".loading").css("display", "none");
-        $("#nav-login").css("display", "grid");
-      }
-    });
-  }
-  function uGender() {
-    var genderDBReference = firebase
-      .database()
-      .ref("Users/" + userID + "/Gender");
-    genderDBReference
-      .once("value", function (snap) {
-        userGender = snap.val();
-      })
-      .then(function () {
-        if (userGender == "Male") {
-          $("#avatar").css("background-image", "url(/images/male.svg)");
-        } else {
-          $("#avatar").css("background-image", "url(/images/female.svg)");
-        }
-        $(".loading").css("display", "none");
-      });
-  }
-  //Logs in user and make changes to the page
-function login() {
-    //User is signed in
-    if (firebase.auth().currentUser) {
-      firebase.auth().signOut();
-    }
-    //logs in the user
-    else {
-      window.email = document.getElementById("login-email").value;
-      window.password = document.getElementById("login-pwd").value;
-      if (email.length < 4 || password.length < 4) {
-        alert("Please enter a valid log in information");
-        return;
-      }
-      firebaseSignIn(email, password);
-      setCookie("email", email);
-      setCookie("password", password);
-    }
-  }
+ 
+

@@ -87,7 +87,7 @@ function logout() {
         console.error("Sign Out Error", error);
       }
     );
-  deleteCookie();
+ // deleteCookie();
 }
 
 function initApp(page) {
@@ -101,15 +101,16 @@ function initApp(page) {
         $("#signup-btn").css("display", "none");
         $("#login-btn").css("display", "none");
         $(".signup").css("display", "none");
-      } else {
-        $("#nav-login").css("display", "none");
+      }else if(page == "progress"){
+          $(".non-member").css("display", "none")
       }
+      $("#logout").css("display", "block"); 
       $(".login").css("display", "none");
+      $("#nav-login").css("display", "none");
       $("#nav-logout").css("display", "grid");
       uGender();
     } else {
       $("#nav-login").css("display", "grid");
-
       $(".loading").css("display", "none");
     }
   });

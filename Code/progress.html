@@ -11,6 +11,7 @@
       src="https://kit.fontawesome.com/16b426a836.js"
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   </head>
   <body>
     <aside>
@@ -33,26 +34,27 @@
       </nav>
     </aside>
     <main>
-        <div class="non-member">
-            <h2>This area is for members only</h2>
-        </div>
-        <div class="loading">
-            <img
-              src="/images/close-loading.svg"
-              alt="close button"
-              class="close-load"
-              onclick="closePopup('.loading')"
-            />
-            <ul>
-              <li>L</li>
-              <li>O</li>
-              <li>A</li>
-              <li>D</li>
-              <li>I</li>
-              <li>N</li>
-              <li>G</li>
-            </ul>
-          </div>
+      <div class="non-member">
+        <h2>This area is for members only</h2>
+      </div>
+      <canvas id="myChart" width="400" height="400"></canvas>
+      <div class="loading">
+        <img
+          src="/images/close-loading.svg"
+          alt="close button"
+          class="close-load"
+          onclick="closePopup('.loading')"
+        />
+        <ul>
+          <li>L</li>
+          <li>O</li>
+          <li>A</li>
+          <li>D</li>
+          <li>I</li>
+          <li>N</li>
+          <li>G</li>
+        </ul>
+      </div>
       <div class="login">
         <div class="login-popup-content">
           <img
@@ -85,7 +87,6 @@
           <a href="#" id="forgot">Forgot password?</a>
         </div>
       </div>
-
     </main>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
@@ -113,6 +114,7 @@
       firebase.analytics();
     </script>
     <script src="/scripts/progress.js"></script>
-    <script src="/scripts/cookie.js"></script>
+    <script src="/scripts/base.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   </body>
 </html>
