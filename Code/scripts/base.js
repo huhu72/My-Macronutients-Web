@@ -87,11 +87,12 @@ function logout() {
         console.error("Sign Out Error", error);
       }
     );
- // deleteCookie();
+  // deleteCookie();
 }
 
-function initApp(page) {
+ function initApp(page) {
   firebase.auth().onAuthStateChanged(function (user) {
+    
     if (user) {
       window.user = user;
       window.userID = user.uid;
@@ -101,20 +102,21 @@ function initApp(page) {
         $("#signup-btn").css("display", "none");
         $("#login-btn").css("display", "none");
         $(".signup").css("display", "none");
-      }else if(page == "progress"){
-          $(".non-member").css("display", "none")
-      }
-      $("#logout").css("display", "block"); 
+      } else if (page == "progress") {
+        $(".non-member").css("display", "none");
+      }else{}
+      $("#logout").css("display", "block");
       $(".login").css("display", "none");
       $("#nav-login").css("display", "none");
       $("#nav-logout").css("display", "grid");
+      $(".loading").css("display", "none");
       uGender();
     } else {
       $("#nav-login").css("display", "grid");
       $(".loading").css("display", "none");
     }
   });
-}
+} 
 function uGender() {
   var genderDBReference = firebase
     .database()
@@ -126,6 +128,7 @@ function uGender() {
     .then(function () {
       if (userGender == "Male") {
         $("#avatar").css("background-image", "url(/images/male.svg)");
+        
       } else {
         $("#avatar").css("background-image", "url(/images/female.svg)");
       }

@@ -37,7 +37,14 @@
       <div class="non-member">
         <h2>This area is for members only</h2>
       </div>
-      <canvas id="myChart" width="400" height="400"></canvas>
+      <div class="chart-container">
+        <canvas id="myChart"></canvas>
+      </div>
+      <div id="month-button-container">
+        <button id="week" class="month-buttons" type="button">WEEK</button>
+        <button id="month" class="month-buttons" type="button">MONTH</button>
+        <button id="year" class="month-buttons">YEAR</button>
+      </div>
       <div class="loading">
         <img
           src="/images/close-loading.svg"
@@ -113,8 +120,8 @@
       firebase.initializeApp(firebaseConfig);
       firebase.analytics();
     </script>
-    <script src="/scripts/progress.js"></script>
     <script src="/scripts/base.js"></script>
+    <script src="/scripts/progress.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   </body>
 </html>

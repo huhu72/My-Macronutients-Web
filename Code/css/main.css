@@ -339,7 +339,7 @@ input,
   margin-left: 10px;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 768px) and (min-height:415px){
   body {
     display: grid;
     grid-template-columns: 20% auto;

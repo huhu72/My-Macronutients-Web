@@ -1,4 +1,19 @@
-var multiplier, calories, userSelection, gender, weight, email, password, userID;
+var multiplier,
+  calories,
+  userSelection,
+  gender,
+  weight,
+  email,
+  password,
+  userID,
+  proteinPercentage,
+  fatPercentage,
+  carbs,
+  proteins,
+  fats,
+  carbCalories,
+  proteinCalories,
+  fatCalories;
 
 function calculate() {
   var w = parseInt(window.innerWidth);
@@ -38,15 +53,6 @@ function calcCalories(weight, multiplier) {
 }
 
 function calcMacros(weight, userSelection, calories) {
-  var proteinPercentage,
-    fatPercentage,
-    carbs,
-    proteins,
-    fats,
-    carbCalories,
-    proteinCalories,
-    fatCalories;
-
   if (userSelection == "Cut") {
     proteinPercentage = 1.1;
     fatPercentage = 0.2;
@@ -76,17 +82,31 @@ function calcMacros(weight, userSelection, calories) {
 }
 function save() {
   var d = new Date();
-  var date = d.getUTCDate();
+  var date = d.getDate();
   var month = d.getUTCMonth() + 1; // Since getUTCMonth() returns month from 0-11 not 1-12
   var year = d.getUTCFullYear();
-  var dateStr = date + "-" + month + "-" + year;
+  if (date < 10) {
+    date = "0" + date;
+  }
+  if (month < 10) {
+    month = "0" + month;
+  }
   if (weight === void 0) {
     alert("Please calculate your macros first");
   } else {
     database
-      .ref("Users/" + auth.currentUser.uid + "/Macros/" +dateStr )
+      .ref(
+        "Users/" +
+          auth.currentUser.uid +
+          "/Macros/" +
+          year +
+          "/" +
+          month +
+          "/" +
+          date 
+      )
       .set({
-        Protein: 2
+        Calories: calories,
       });
   }
 }
@@ -95,4 +115,3 @@ window.onload = function () {
   $(".loading").css("display", "grid");
   initApp("calc");
 };
-

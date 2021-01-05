@@ -29,6 +29,11 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+main {
+  background: rgba(255, 255, 255, 0.3);
+  padding: 1em 1.4em;
+  color: #707070;
+}
 aside {
   color: #707070;
   display: grid;
@@ -98,11 +103,6 @@ ul #Home {
   background-color: #c4d8f0;
 }
 
-main {
-  background: rgba(255, 255, 255, 0.3);
-  padding: 1em 1.4em;
-  color: #707070;
-}
 h1 {
   margin: 0;
   text-align: center;
@@ -125,7 +125,7 @@ p {
 }
 .non-member{
   height: 100%;
-  position: absolute;
+ 
   top: 20%;
   font-weight: 100;
 }
@@ -267,7 +267,27 @@ input,
   width: 30px;
   justify-self: end;
 }
-
+.chart-container {
+  margin: auto auto 0 auto;
+  height: 22vh;
+  width: 80vw;
+}
+#month-button-container{
+  margin: auto;
+  width: fit-content;
+  height: fit-content;
+}
+.month-buttons{
+  background: none;
+  border: none;
+  text-decoration: none;
+  font-family: "Montserrat" !important;
+  color: #707070;
+  overflow: hidden;
+  font-size: small;
+  cursor: pointer;
+  text-transform: uppercase;
+}
 @media only screen and (min-width: 768px) {
   body {
     display: grid;
